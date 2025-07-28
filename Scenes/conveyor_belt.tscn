@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://c03q14xhsrbl0"]
+
+[ext_resource type="Script" uid="uid://b7wgxiymy8mot" path="res://Scripts/conveyor_belt.gd" id="1_xgy6c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4h2y"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_u4h2y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgy6c"]
+
+[node name="Conveyor Belt" type="Area2D" groups=["Conveyor"]]
+script = ExtResource("1_xgy6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Conveyor"]]
+modulate = Color(0.147672, 0.147672, 0.147672, 1)
+self_modulate = Color(0.176419, 0.176419, 0.176419, 1)
+shape = SubResource("RectangleShape2D_u4h2y")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+scale = Vector2(19.9526, 20.0318)
+texture = SubResource("CanvasTexture_u4h2y")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_xgy6c")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

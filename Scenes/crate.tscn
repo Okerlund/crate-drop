@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ie82lhvumabe"]
+
+[ext_resource type="Script" uid="uid://bfya1dw7w608q" path="res://Scripts/crate.gd" id="1_wp72f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7brft"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wp72f"]
+
+[node name="Crate" type="RigidBody2D" groups=["Crate"]]
+script = ExtResource("1_wp72f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Conveyor"]]
+modulate = Color(0.147672, 0.147672, 0.147672, 1)
+self_modulate = Color(0.176419, 0.176419, 0.176419, 1)
+shape = SubResource("RectangleShape2D_7brft")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+scale = Vector2(19.9526, 20.0318)
+texture = SubResource("CanvasTexture_wp72f")
