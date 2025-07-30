@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c3q8bhramdrdc"]
 
 [ext_resource type="PackedScene" uid="uid://c03q14xhsrbl0" path="res://Scenes/conveyor_belt.tscn" id="1_jjgbg"]
-[ext_resource type="PackedScene" uid="uid://ie82lhvumabe" path="res://Scenes/crate.tscn" id="2_bo1nx"]
+[ext_resource type="Script" uid="uid://chrtmi8sjdttg" path="res://Scripts/crate_spawner.gd" id="3_8gbba"]
 
 [node name="Main" type="Node2D"]
 
@@ -12,6 +12,6 @@ scale = Vector2(65.68, 1)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(578, 323)
 
-[node name="Crate" parent="." instance=ExtResource("2_bo1nx")]
-position = Vector2(1007, 227)
-scale = Vector2(2, 2)
+[node name="Crate Spawner" type="Node2D" parent="."]
+position = Vector2(1071, 219)
+script = ExtResource("3_8gbba")
