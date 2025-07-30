@@ -1,11 +1,13 @@
 extends Node2D
 
-@export var spawn_timer : float = 5.0
-@export var crate = preload("res://Scenes/crate.tscn")
+@export var crate : PackedScene
 
 func _ready() -> void:
-	crate = crate.instantiate()
-	add_child(crate)
+	spawn_crate()
+	
+func _on_timer_timeout() -> void:
+	spawn_crate()
 
-func _process(_delta: float) -> void:
-	pass
+func spawn_crate():
+	var new_crate = crate.instantiate()
+	add_child(new_crate)
