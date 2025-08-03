@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3q8bhramdrdc"]
+[gd_scene load_steps=6 format=3 uid="uid://c3q8bhramdrdc"]
 
 [ext_resource type="PackedScene" uid="uid://c03q14xhsrbl0" path="res://Scenes/conveyor_belt.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://ie82lhvumabe" path="res://Scenes/crate.tscn" id="2_bo1nx"]
 [ext_resource type="Script" uid="uid://chrtmi8sjdttg" path="res://Scripts/crate_spawner.gd" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://cfkaaasodaxwl" path="res://Scenes/destroy_zone.tscn" id="4_jjvhh"]
+[ext_resource type="Script" uid="uid://bapqd7v2w58po" path="res://Scripts/destroy_zone.gd" id="5_kry3j"]
 
 [node name="Main" type="Node2D"]
 
@@ -23,5 +25,11 @@ process_callback = 0
 wait_time = 5.0
 autostart = true
 
+[node name="Destroy Zone" parent="." instance=ExtResource("4_jjvhh")]
+position = Vector2(558, 515)
+scale = Vector2(61.48, 1)
+script = ExtResource("5_kry3j")
+
 [connection signal="body_exited" from="Conveyor Belt" to="Conveyor Belt" method="_on_body_exited"]
 [connection signal="timeout" from="Timer" to="Crate Spawner" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Destroy Zone" to="Destroy Zone" method="_on_body_entered"]

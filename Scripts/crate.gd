@@ -30,3 +30,6 @@ func exit_conveyor():
 	on_conveyor = false
 	conveyor_velocity = Vector2.ZERO
 	gravity_scale = 1.0
+
+func destroy_crate():
+	queue_free()
