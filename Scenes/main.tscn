@@ -23,4 +23,5 @@ process_callback = 0
 wait_time = 5.0
 autostart = true
 
+[connection signal="body_exited" from="Conveyor Belt" to="Conveyor Belt" method="_on_body_exited"]
 [connection signal="timeout" from="Timer" to="Crate Spawner" method="_on_timer_timeout"]

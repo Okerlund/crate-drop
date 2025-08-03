@@ -7,10 +7,8 @@ var crate_body : Node
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Crate"):
-		is_on_conveyor = true
-		crate_body = body
+		body.set_on_conveyor(Vector2(-crate_velocity, 0))
 
-func _physics_process(_delta: float) -> void:
-	if is_on_conveyor:
-		crate_body.gravity_scale = 0.0
-		crate_body.linear_velocity.x = -crate_velocity
+func _on_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Crate"):
+		body.exit_conveyor()
